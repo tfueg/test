@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="test.db.views::CV_CUSTOMER" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" defaultClient="$$client$$">
+<descriptions defaultDescription="Customers"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="test.db.views::bctravel.SCUSTOM">
+    <resourceUri>test.db.views::bctravel.SCUSTOM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT">
+        <descriptions defaultDescription="MANDT"/>
+      </viewAttribute>
+      <viewAttribute id="ID">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="NAME">
+        <descriptions defaultDescription="NAME"/>
+      </viewAttribute>
+      <viewAttribute id="FORM">
+        <descriptions defaultDescription="FORM"/>
+      </viewAttribute>
+      <viewAttribute id="STREET">
+        <descriptions defaultDescription="STREET"/>
+      </viewAttribute>
+      <viewAttribute id="CITY">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="REGION">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_WITH_LEADING_ZEROS" datatype="NVARCHAR" length="8" expressionLanguage="SQL">
+        <formula>lpad(&quot;ID&quot;, 8,'0')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="test.db.views::bctravel.SCUSTOM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORM" source="FORM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STREET" source="STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+    </attribute>
+    <attribute id="ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_WITH_LEADING_ZEROS"/>
+    </attribute>
+    <attribute id="NAME" hidden="true" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="NAME"/>
+    </attribute>
+    <attribute id="FORM" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FORM"/>
+      <keyMapping columnObjectName="Projection_1" columnName="FORM"/>
+    </attribute>
+    <attribute id="STREET" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="Projection_1" columnName="STREET"/>
+    </attribute>
+    <attribute id="CITY" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CITY"/>
+    </attribute>
+    <attribute id="COUNTRY" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="REGION" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Projection_1" columnName="REGION"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="FIRSTNAME" order="3" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="25">
+        <formula>SUBSTR_BEFORE(&quot;NAME&quot;,' ')</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+    <calculatedAttribute id="LASTNAME" order="4" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="25">
+        <formula>SUBSTR_AFTER(&quot;NAME&quot;, ' ')</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="206"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

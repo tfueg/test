@@ -1,0 +1,8 @@
+{
+  "test.db.synonyms::SCUSTOM": {
+    "target": {
+      "object": "system-local.kis.workshop.model.persistence::bctravel.SCUSTOM",
+      "schema": "WORKSHOP"
+    }
+  }
+}

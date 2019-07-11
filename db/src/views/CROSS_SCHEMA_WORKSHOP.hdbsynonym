@@ -1,0 +1,8 @@
+{
+  "test.db.views::bctravel.SCUSTOM": {
+    "target": {
+      "object": "system-local.kis.workshop.model.persistence::bctravel.SCUSTOM",
+      "schema": "WORKSHOP"
+    }
+  }
+}
