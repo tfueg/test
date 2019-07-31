@@ -4,5 +4,11 @@
       "object": "system-local.kis.workshop.model.persistence::bctravel.SCUSTOM",
       "schema": "WORKSHOP"
     }
+  },
+  "test.db.synonyms::bctravel.SFLIGHT": {
+    "target": {
+      "object": "system-local.kis.workshop.model.persistence::bctravel.SFLIGHT",
+      "schema": "WORKSHOP"
+    }
   }
 }

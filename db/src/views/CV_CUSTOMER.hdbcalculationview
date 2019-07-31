@@ -4,8 +4,8 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="test.db.views::bctravel.SCUSTOM">
-    <resourceUri>test.db.views::bctravel.SCUSTOM</resourceUri>
+  <DataSource id="null">
+    <resourceUri>test.db.synonyms::SCUSTOM</resourceUri>
   </DataSource>
 </dataSources>
 <calculationViews>
@@ -42,7 +42,7 @@
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <restrictedViewAttributes/>
-    <input node="test.db.views::bctravel.SCUSTOM">
+    <input node="null">
       <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
@@ -94,12 +94,12 @@
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="25">
         <formula>SUBSTR_BEFORE(&quot;NAME&quot;,' ')</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
     <calculatedAttribute id="LASTNAME" order="4" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="25">
         <formula>SUBSTR_AFTER(&quot;NAME&quot;, ' ')</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures/>
   <calculatedMeasures/>
